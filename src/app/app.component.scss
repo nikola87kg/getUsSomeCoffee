@@ -1,0 +1,191 @@
+/* GOLBAL */
+
+* {
+	box-sizing: border-box;
+}
+
+ul {
+	list-style-type: none;
+  	font-size: 0;
+	li { font-size: initial; }
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	&:hover {
+		text-decoration: none;
+		cursor: pointer;
+	}
+}
+
+ul.horizontal {
+	li {
+		display: inline-block;
+	}
+	li:not(:last-of-type) {		
+		border-right: 0 !important;
+	}
+}
+
+*[type=button] {
+}
+
+.bold {
+	font-weight: bold;	
+}
+
+.important-text {
+	color:  #cc3300; 
+}
+		
+@keyframes color-change {
+	0%   { color: black; }
+	50%  { color: #cc3300; } 
+	100% { color: black; }
+}
+	
+@keyframes background-change {
+	0%   { background: black; }
+	50%  { background: #992600; } 
+	100% { background: black; }
+}
+
+/* INTRO */
+
+div.intro {
+	padding: 5%;
+}
+
+div.app-wrapper {
+	margin:		0;
+	height: 	100%;
+	width: 		100%;
+	background: url("/assets/intro/back.jpg") no-repeat bottom left;
+	background-size: cover; 
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	img#intro-location {
+		height: 100px;
+	}
+	h2.intro-title {
+		margin: 10px auto;
+	}
+	p {
+		display: inline-block;
+		margin: 10px auto;
+		padding: 10px;
+		font-size: 18px;
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+		color: black;
+/* 		text-shadow: 1px 1px gray; */
+/* 		background:rgba(255,255,255,0.7); */
+	}
+}
+
+a.access-button {
+	display: block;
+	width: 200px;
+	background: black;
+	color: white;
+	padding: 10px;
+	margin: 10px auto;
+	animation: background-change 5s infinite linear;
+	&:hover {
+		background: #676363; 
+	}
+}
+
+a.later-button {
+	display: block;
+	width: 200px;
+	color: black;
+/* 	font-weight: bold; */
+/* 	text-shadow: 1px 1px gray; */
+	padding: 10px;
+	margin: 10px auto;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+
+/* HOME */
+
+ul.orderby {
+    margin: 0;
+    padding: 0;
+	li {
+		background: white;
+		border: 1px solid #a83600;
+		border-top: 0;
+		color: #a83600;
+		height: 40px;
+		margin: 0;
+		width: 50%;
+		max-width: 300px;
+		&:hover {
+			background: #ffdccc;
+		}
+		&.active {
+			background: #a83600;
+			color: white;
+			&:hover {
+				background: #993000;
+			}
+		}
+		a {
+			width: 100%;
+			line-height: 40px;
+			height: 100%;
+			display:block;
+		}
+	}
+}
+
+h1.brand {
+	color: #993000;
+	animation: color-change 5s infinite linear;
+	
+}
+
+table.coffee-list {
+	margin: 10px auto;
+	width: 100%;
+	max-width: 1200px;
+/* 	background: white; */
+	border:1px solid black;
+	border-collapse: collapse;
+	thead {
+		background:  #993000;
+		color: white;
+		tr {
+			th {
+				padding: 10px;
+			}
+		}
+	}
+	tbody {
+		background:  rgba(255, 255, 255, 0.6);
+		tr {
+			td {
+				padding: 10px;
+				border-bottom: 1px solid #993000;
+				img {
+					width: 100px;
+					height: 100px;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<div class="app-wrapper">
+
+	<ul class="orderby horizontal">
+		<li class="active"> <a href="#"> Distance </a> </li>
+		<li> <a href="#"> Prices </a> </li>
+	</ul>
+	
+	<h1 class="brand"> Get Us Some Coffee </h1>
+	
+	<table class="coffee-list">
+		<thead>
+			<tr>
+				<th> Place image </th>
+				<th> Place name </th>
+				<th> Distance </th>
+				<th> Price range </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let venue of venues">
+				<td><img src="" alt="image"></td>
+				<td class="bold">{{ venue.name }}</td>
+				<td class="bold">{{ venue.location.distance }}</td>
+				<td class="bold">{{ venue.price }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
