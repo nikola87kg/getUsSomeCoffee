@@ -1,8 +1,9 @@
-<div class="app-wrapper">
+<div class="app-wrapper home">
+<div class="home-back"></div>
 
 	<ul class="orderby horizontal">
-		<li class="active"> <a href="#"> Distance </a> </li>
-		<li> <a href="#"> Prices </a> </li>
+		<li> <a (click)="setDistance()" id="switchDistance" class="active" >Distance</a>   </li>
+		<li> <a (click)="setCheckins()" id="switchCheckins" >Checkins</a>  </li>
 	</ul>
 	
 	<h1 class="brand"> Get Us Some Coffee </h1>
@@ -13,17 +14,28 @@
 				<th> Place image </th>
 				<th> Place name </th>
 				<th> Distance </th>
-				<th> Price range </th>
+				<th> Checkins </th>
 			</tr>
 		</thead>
-		<tbody>
-			<tr *ngFor="let venue of venues">
-				<td><img src="" alt="image"></td>
+		<tbody *ngIf="activeDistance">
+
+			<tr  *ngFor="let venue of venues | orderBy: 'location.distance'  ">
+				<td> <img src="{{ venue.image }}" alt="{{ venue.name }}"></td>
 				<td class="bold">{{ venue.name }}</td>
-				<td class="bold">{{ venue.location.distance }}</td>
-				<td class="bold">{{ venue.price }}</td>
+				<td>{{ venue.location.distance }}m</td>
+				<td>{{ venue.stats.checkinsCount }}</td>
 			</tr>
 		</tbody>
+		<tbody *ngIf="activeCheckins">
+			<tr  *ngFor="let venue of venues | orderBy: '-stats.checkinsCount'  ">
+				<td> <img src="{{ venue.image }}" alt="image"></td>
+				<td class="bold">{{ venue.name }}</td>
+				<td>{{ venue.location.distance }}m</td>
+				<td>{{ venue.stats.checkinsCount }}</td>
+			</tr>
+		</tbody>
+		
+		
 	</table>
 
 </div>

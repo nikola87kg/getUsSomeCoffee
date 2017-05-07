@@ -35,8 +35,12 @@ ul.horizontal {
 	font-weight: bold;	
 }
 
-.important-text {
+*.important-text {
 	color:  #cc3300; 
+}
+
+a.important-text:hover {
+	color:  #ff490d; 
 }
 		
 @keyframes color-change {
@@ -50,20 +54,48 @@ ul.horizontal {
 	50%  { background: #992600; } 
 	100% { background: black; }
 }
+@keyframes spin { 
+   0% { transform: rotate(10deg); } 
+   50% 	{ transform: rotate(-10deg); }
+   100% 	{ transform: rotate(10deg); }
+}
 
 /* INTRO */
 
 div.intro {
 	padding: 5%;
 }
+div.error {
+	padding: 5%;
+	background: url("/assets/back.jpg") no-repeat bottom left;
+	background-size: cover; 
+    background-attachment: fixed;
+	img#error-sign {
+		animation: spin 2s infinite ease;
+	}
+}
+
+div.home {
+	background: url("/assets/coffee.jpg") no-repeat top center;
+	background-size: cover; 
+    background-attachment: fixed;	
+}
+
+div.intro {
+	background: url("/assets/back.jpg") no-repeat bottom left;
+	background-size: cover; 
+    background-attachment: fixed;	
+}
+
+
 
 div.app-wrapper {
 	margin:		0;
 	height: 	100%;
 	width: 		100%;
-	background: url("/assets/intro/back.jpg") no-repeat bottom left;
-	background-size: cover; 
+	overflow-x: hidden;
 	text-align: center;
+    background-attachment: fixed;
 	font-family: Arial, Helvetica, sans-serif;
 	img#intro-location {
 		height: 100px;
@@ -79,8 +111,6 @@ div.app-wrapper {
 		border-top: 1px solid black;
 		border-bottom: 1px solid black;
 		color: black;
-/* 		text-shadow: 1px 1px gray; */
-/* 		background:rgba(255,255,255,0.7); */
 	}
 }
 
@@ -97,12 +127,11 @@ a.access-button {
 	}
 }
 
-a.later-button {
+a.dismiss-button {
 	display: block;
 	width: 200px;
 	color: black;
-/* 	font-weight: bold; */
-/* 	text-shadow: 1px 1px gray; */
+	font-weight: bold;
 	padding: 10px;
 	margin: 10px auto;
 	&:hover {
@@ -125,21 +154,18 @@ ul.orderby {
 		margin: 0;
 		width: 50%;
 		max-width: 300px;
-		&:hover {
-			background: #ffdccc;
-		}
-		&.active {
-			background: #a83600;
-			color: white;
-			&:hover {
-				background: #993000;
-			}
-		}
 		a {
 			width: 100%;
 			line-height: 40px;
 			height: 100%;
 			display:block;
+			&.active {
+				background: #a83600;
+				color: white;
+				&:hover {
+					background: #993000;
+				}
+			}
 		}
 	}
 }
@@ -152,9 +178,8 @@ h1.brand {
 
 table.coffee-list {
 	margin: 10px auto;
-	width: 100%;
+	width: calc( 100vw - 20px);
 	max-width: 1200px;
-/* 	background: white; */
 	border:1px solid black;
 	border-collapse: collapse;
 	thead {
@@ -167,21 +192,47 @@ table.coffee-list {
 		}
 	}
 	tbody {
-		background:  rgba(255, 255, 255, 0.6);
+		height:300px;
 		tr {
 			td {
 				padding: 10px;
 				border-bottom: 1px solid #993000;
 				img {
-					width: 100px;
-					height: 100px;
+					width: 50px;
+					height: 50px;
+					border:none;
+					line-height: 50px;
+					background: #ffc6aa;
+					font-size:10px;
+					color: #993000;
+				}
+			}
+		}
+		tr:nth-child(even) { background:  rgba(244, 244, 244, 0.9); }
+		tr:nth-child(odd) { background:  rgba(255, 255, 255, 0.9); }
+	}
+}
+
+@media screen and (orientation:portrait) {
+	
+	img#intro-location {
+		height: 30px;
+	}
+	table.coffee-list {
+			font-size: 14px;
+		tr {
+			> :first-child {
+				img {
+					width: 30px;
+					height: 30px;
+					line-height: 30px;
 				}
 			}
 		}
 	}
+	
+	
 }
-
-
 
 
 

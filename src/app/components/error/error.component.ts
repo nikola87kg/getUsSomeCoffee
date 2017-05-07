@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Router }  from '@angular/router';
 
 @Component({
   selector: 'app-error',
-  templateUrl: './error.component.html',
-  styleUrls: ['./error.component.css']
+  templateUrl: './error.component.html'
 })
 export class ErrorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  goBack() {
+      this.router.navigate(['../intro']);
+  }
 }
